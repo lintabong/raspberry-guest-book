@@ -4,3 +4,7 @@
 
 __pycache__
 test*.py
+
+config.json
+master
+result
