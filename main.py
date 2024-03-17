@@ -220,8 +220,24 @@ class GuestbookApp:
         keyboard_window = tkinter.Toplevel(self.master)
         keyboard_window.title("Virtual Keyboard")
 
+        # Mendapatkan ukuran layar
+        screen_width = self.master.winfo_screenwidth()
+        screen_height = self.master.winfo_screenheight()
+
+        # Mendapatkan ukuran jendela keyboard virtual
+        keyboard_width = 300
+        keyboard_height = 200
+
+        # Menghitung posisi tengah-tengah layar
+        x_pos = (screen_width - keyboard_width) // 2
+        y_pos = (screen_height - keyboard_height) // 2
+
+        # Mengatur posisi jendela keyboard virtual
+        keyboard_window.geometry(f"{keyboard_width}x{keyboard_height}+{x_pos}+{y_pos}")
+
         # Daftar huruf qwerty
         qwerty_layout = [
+            ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
             ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
             ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
             ['z', 'x', 'c', 'v', 'b', 'n', 'm']
@@ -233,21 +249,6 @@ class GuestbookApp:
             frame.pack(pady=5)
             for letter in row:
                 btn = tkinter.Button(frame, text=letter, width=3, command=lambda l=letter: self.btn_click(l))
-                btn.pack(side=tkinter.LEFT, padx=2)
-
-        # Buat tombol untuk angka 0 hingga 9
-        numbers_layout = [
-            ['7', '8', '9'],
-            ['4', '5', '6'],
-            ['1', '2', '3'],
-            ['0']
-        ]
-
-        for row in numbers_layout:
-            frame = tkinter.Frame(keyboard_window)
-            frame.pack(pady=5)
-            for number in row:
-                btn = tkinter.Button(frame, text=number, width=3, command=lambda n=number: self.btn_click(n))
                 btn.pack(side=tkinter.LEFT, padx=2)
 
     def btn_click(self, letter):
