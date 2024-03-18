@@ -12,7 +12,6 @@ import sounddevice
 
 import tkinter.ttk as ttk
 from tkinter import messagebox
-
 from scipy.io import wavfile
 from datetime import datetime
 
@@ -27,6 +26,8 @@ class GuestbookApp:
     def __init__(self, master):
         self.master = master
 
+        # master.overrideredirect(True)
+        master.iconbitmap('')
         master.title('GUESTBOOK APP')
 
         # init variables
@@ -242,7 +243,7 @@ class GuestbookApp:
             x_pos = (screen_width - keyboard_width) // 2
             y_pos = (screen_height - keyboard_height) // 2
 
-            rename_window.geometry(f"{keyboard_width}x{keyboard_height}+{x_pos}+{y_pos}")
+            rename_window.geometry(f'{keyboard_width}x{keyboard_height}+{x_pos}+{y_pos}')
 
             def add_char(character):
                 entry.insert(tkinter.END, character)

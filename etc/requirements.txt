@@ -1,9 +1,7 @@
 cffi==1.15.1
-keyboard==0.13.5
-kiwisolver==1.4.5
-numpy==1.25.1
+keyboard==0.13.5 
+kiwisolver==1.4.5 
 playsound==1.3.0
-pycparser==2.21
 python-dotenv==1.0.1
 scipy==1.11.1
 six==1.16.0
